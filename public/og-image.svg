@@ -1,0 +1,27 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  
+  <!-- Gradient overlay -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0FDFA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  
+  <!-- Logo -->
+  <path d="M100 265 L100 315 L140 345 L140 295 Z" fill="#14B8A6"/>
+  <path d="M140 235 L140 285 L180 315 L180 265 Z" fill="#1F2937"/>
+  
+  <!-- Text -->
+  <text x="220" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="#1F2937">DITTRA</text>
+  
+  <!-- Tagline -->
+  <text x="100" y="390" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="600" fill="#14B8A6">Automate. Transform. Scale.</text>
+  
+  <!-- Description -->
+  <text x="100" y="450" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#6B7280">AI-Powered Automation and Intelligent Solutions</text>
+  <text x="100" y="490" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#6B7280">for Enterprise Growth</text>
+</svg>

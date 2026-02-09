@@ -1,0 +1,8 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Teal left shape -->
+  <path d="M0 20 L18 10 L18 30 L0 40 Z" fill="#14B8A6"/>
+  <!-- White right shape -->
+  <path d="M18 0 L36 10 L36 30 L18 20 Z" fill="#FFFFFF"/>
+  <!-- DITTRA text -->
+  <text x="45" y="28" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF">DITTRA</text>
+</svg>
