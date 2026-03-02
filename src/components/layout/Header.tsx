@@ -74,9 +74,12 @@ export function Header() {
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary-400 to-cyber-400 group-hover:w-full transition-all duration-300" />
               </Link>
             ))}
-            <button className="ml-4 px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-primary-500 to-cyber-500 rounded-xl hover:from-primary-400 hover:to-cyber-400 transition-all duration-300 shadow-lg hover:shadow-primary-500/50">
+            <Link
+              href="/contact#book-consultation"
+              className="ml-4 px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-primary-500 to-cyber-500 rounded-xl hover:from-primary-400 hover:to-cyber-400 transition-all duration-300 shadow-lg hover:shadow-primary-500/50"
+            >
               GET STARTED
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -120,12 +123,13 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
-                <button
+                <Link
+                  href="/contact#book-consultation"
                   className="w-full px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-primary-500 to-cyber-500 rounded-xl hover:from-primary-400 hover:to-cyber-400 transition-all duration-300"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   GET STARTED
-                </button>
+                </Link>
               </div>
             </motion.div>
           )}

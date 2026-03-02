@@ -84,8 +84,16 @@ export function Footer() {
               </p>
             </div>
             
-            {/* Social Links with glow effect */}
-            <div className="flex space-x-6">
+            <div className="flex items-center gap-6">
+              <Link
+                href="/contact#book-consultation"
+                className="px-5 py-2 text-xs font-semibold text-white bg-gradient-to-r from-primary-500 to-cyber-500 rounded-lg hover:from-primary-400 hover:to-cyber-400 transition-all duration-300 shadow-lg hover:shadow-primary-500/50"
+              >
+                BOOK CONSULTATION
+              </Link>
+
+              {/* Social Links with glow effect */}
+              <div className="flex space-x-6">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.name}
@@ -101,6 +109,7 @@ export function Footer() {
                   <social.icon className="w-5 h-5 relative z-10" aria-hidden="true" />
                 </motion.a>
               ))}
+              </div>
             </div>
           </div>
         </div>
