@@ -64,6 +64,24 @@ export function Footer() {
               </ul>
             </div>
           ))}
+
+          <div className="col-span-2 md:col-span-3 lg:col-span-2">
+            <h3 className="font-bold text-primary-400 text-sm mb-6 uppercase tracking-wider">Contact Info</h3>
+            <div className="space-y-3 text-sm text-gray-300 max-w-md">
+              <p>Mon-Sat : 8:00 AM – 5:00 PM</p>
+              <p>5900 Balcones Drive STE 100 TRAVIS COUNTY Austin, TX, 78731, USA</p>
+              <p>
+                <a href="mailto:sales@dittra.com" className="text-primary-300 hover:text-primary-200 transition-colors">
+                  sales@dittra.com
+                </a>
+              </p>
+              <p>
+                <a href="tel:+17373273347" className="text-primary-300 hover:text-primary-200 transition-colors">
+                  +17373273347
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Bottom */}
