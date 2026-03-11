@@ -93,13 +93,10 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="block text-white mb-4">
-              AUTOMATE YOUR BUSINESS
+              AGENTIC AI
             </span>
             <span className="block text-white mb-4">
-              TO SCALE
-            </span>
-            <span className="block gradient-text text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]">
-              
+              FOR ENTERPRISE GROWTH
             </span>
           </motion.h1>
 
@@ -122,13 +119,13 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <a
-              href="#services"
+              href="/capabilities/consulting"
               className="apple-button-primary group"
             >
               <span className="relative z-10">Explore Our Capabilities</span>
             </a>
             <a
-              href="/contact"
+              href="/contact#book-consultation"
               className="apple-button-secondary group"
             >
               Schedule Consultation
@@ -143,9 +140,9 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             {[
-              { value: '10+', label: 'Years of Excellence' },
-              { value: '150+', label: 'Transformations' },
-              { value: '25+', label: 'Industry Awards' },
+              { value: '120X', label: 'Implementation ROI' },
+              { value: '10X', label: 'Cost Reductions' },
+              { value: '40%', label: 'Productivity Lift' },
             ].map((stat, index) => (
               <motion.div
                 key={index}

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Outfit, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { organizationSchema, websiteSchema } from '@/lib/structured-data'
 
-const inter = Inter({ 
+const outfit = Outfit({ 
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-outfit',
   display: 'swap',
 })
 
@@ -18,6 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dittra.com'),
   title: 'Dittra - AI-Powered Digital Transformation | Finance, Sales & Enterprise Solutions',
   description: 'Leading AI solutions provider specializing in financial intelligence, sales acceleration, and end-to-end digital transformation. Transform your enterprise with proven AI technology.',
   keywords: 'AI solutions, digital transformation, AI for finance, AI for sales, enterprise AI, technology consulting, AI implementation',
@@ -68,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${spaceGrotesk.variable}`}>
       <head>
         <script
           type="application/ld+json"

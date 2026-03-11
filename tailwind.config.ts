@@ -10,21 +10,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary brand color - teal from the design
+        // Primary brand color - electric blue
         primary: {
-          DEFAULT: '#14B8A6', // Teal-500
-          light: '#2DD4BF',   // Teal-400
-          dark: '#0D9488',    // Teal-600
-          50: '#F0FDFA',
-          100: '#CCFBF1',
-          200: '#99F6E4',
-          300: '#5EEAD4',
-          400: '#2DD4BF',
-          500: '#14B8A6',
-          600: '#0D9488',
-          700: '#0F766E',
-          800: '#115E59',
-          900: '#134E4A',
+          DEFAULT: '#2563EB',
+          light: '#3B82F6',
+          dark: '#1D4ED8',
+          50: '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#3B82F6',
+          600: '#2563EB',
+          700: '#1D4ED8',
+          800: '#1E40AF',
+          900: '#1E3A8A',
         },
         // Tech/digital accent colors
         cyber: {
@@ -81,8 +81,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'var(--font-inter)', 'system-ui', 'sans-serif'],
-        heading: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'var(--font-inter)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-outfit)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-space-grotesk)', 'var(--font-outfit)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'hero': ['clamp(2.5rem, 8vw, 6rem)', { lineHeight: '1.05', letterSpacing: '-0.02em', fontWeight: '600' }],

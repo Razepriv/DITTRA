@@ -1,24 +1,68 @@
 'use client'
 
-import { ScrollSection } from '@/components/ui/ScrollSection'
-import { ServiceCard } from '@/components/ui/ServiceCard'
-import { 
-  TrendingUp, 
-  Users, 
-  Rocket, 
-  GitBranch, 
-  Target 
-} from 'lucide-react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useState } from 'react'
+
+const capabilityTabs = [
+  {
+    key: 'ai-accelerators',
+    label: 'AI Accelerators',
+    description:
+      'Accelerate your workflow. Our AI Accelerator blends design thinking, AI-driven insights, and advanced problem-solving to uncover challenges and deliver innovative Agentic AI solutions. Through a focused 2-day workshop and 1:1 meetings, we gain deep understanding of your workflows, tasks, and processes.',
+    href: '/solutions/ai-accelerators',
+  },
+  {
+    key: 'ai-agents',
+    label: 'AI Agents',
+    description:
+      'Our AI agents simplify and enhance operations by automating routine tasks, streamlining workflows, and generating actionable insights. From inventory and scheduling to enterprise knowledge operations, these intelligent systems increase efficiency and productivity across teams.',
+    href: '/capabilities/ai-agents',
+  },
+  {
+    key: 'human-squads',
+    label: 'Human Squads',
+    description:
+      'Our Human Squads deliver expert support to help businesses maintain and optimize AI systems, guide strategic innovation, and build scalable software products. With a human-centered design and research approach, we build seamless solutions that drive sustained growth.',
+    href: '/capabilities/custom-software',
+  },
+] as const
+
+const accelerateCards = [
+  {
+    title: 'Consulting',
+    subtitle: 'Where should we start?',
+    description:
+      'Dittra helps C-suite leaders identify high-impact AI use cases and prioritize opportunities with the most significant outcomes through a complimentary Agentic Mapping session.',
+    href: '/capabilities/consulting',
+  },
+  {
+    title: 'AI Agents',
+    subtitle: 'Preconfigured AI Agents for your workflow',
+    description:
+      'We have solved challenges across sales, service, operations, and logistics by automating emails, calls, and workflows. Get results in less than 90 days with pre-built agents targeting payback periods under one year.',
+    href: '/capabilities/ai-agents',
+  },
+  {
+    title: 'Custom Software',
+    subtitle: 'Tailored Software, Powered by Deep Expertise',
+    description:
+      'Dittra provides dedicated teams to design and build custom software for industrial use cases across web, mobile, IoT, AI, and voice systems to unlock new value quickly.',
+    href: '/capabilities/custom-software',
+  },
+] as const
 
 export function ServiceShowcase() {
+  const [activeTab, setActiveTab] = useState<(typeof capabilityTabs)[number]['key']>('ai-accelerators')
+
+  const currentTab = capabilityTabs.find((tab) => tab.key === activeTab) ?? capabilityTabs[0]
+
   return (
-    <ScrollSection id="services" className="relative py-24 lg:py-32 overflow-hidden">
-      {/* Futuristic Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900" />
-      <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-20" />
-      
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+    <section id="services" className="relative overflow-hidden py-24 lg:py-32">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0F1C] via-[#0B1324] to-[#0A0F1C]" />
+      <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(148,163,184,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.12)_1px,transparent_1px)] [background-size:36px_36px]" />
+
+      <div className="container relative z-10 mx-auto space-y-24 px-6 lg:px-12">
         <motion.div
           className="text-center mb-24"
           initial={{ opacity: 0, y: 30 }}
@@ -26,195 +70,71 @@ export function ServiceShowcase() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl lg:text-7xl font-bold mb-6 gradient-text tracking-tight">
-            Transformative Solutions
+          <h2 className="font-heading text-5xl font-bold tracking-tight text-white lg:text-7xl">
+            Capabilities
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto font-light">
-            End-to-end AI capabilities designed to accelerate your business
+          <p className="mx-auto mt-6 max-w-3xl text-xl text-slate-300 lg:text-2xl">
+            Explore how Dittra combines acceleration programs, autonomous agents, and human squads to deliver enterprise outcomes.
           </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 p-2">
+            {capabilityTabs.map((tab) => (
+              <button
+                key={tab.key}
+                type="button"
+                onClick={() => setActiveTab(tab.key)}
+                className={`rounded-xl px-5 py-2 text-sm font-semibold uppercase tracking-[0.12em] transition ${
+                  activeTab === tab.key
+                    ? 'bg-white text-slate-900'
+                    : 'text-slate-300 hover:bg-white/10 hover:text-white'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-8 max-w-5xl rounded-3xl border border-white/15 bg-white/[0.06] p-8 text-left backdrop-blur-xl">
+            <p className="text-xl leading-relaxed text-slate-200">{currentTab.description}</p>
+            <Link
+              href={currentTab.href}
+              className="mt-6 inline-flex rounded-xl border border-cyan-200/40 bg-cyan-400/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-cyan-100 transition hover:bg-cyan-300/20"
+            >
+              Learn More
+            </Link>
+          </div>
         </motion.div>
 
-        <div className="space-y-32 lg:space-y-40">
-          {/* AI for Finance */}
-          <ServiceCard
-            icon={<TrendingUp className="w-12 h-12 text-primary-400" strokeWidth={1.5} />}
-            title="Financial Intelligence, Amplified"
-            description="Transform financial operations with predictive analytics, automated reporting, and risk management AI that sees patterns humans miss."
-            benefits={[
-              'Predictive cash flow modeling',
-              'Automated financial reporting',
-              'Fraud detection & risk analysis',
-              'Real-time market insights',
-            ]}
-            ctaText="Discover Financial AI Solutions"
-            ctaLink="/services/ai-finance"
-            layout="left"
-            visual={
-              <div className="relative h-80 rounded-2xl cyber-card p-10 flex items-center justify-center overflow-hidden group">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-cyber/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 8, repeat: Infinity }}
-                />
-                <div className="text-center relative z-10">
-                  <motion.div
-                    className="text-7xl font-bold gradient-text mb-6 tracking-tight"
-                    animate={{ opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                  >
-                    $2.4M
-                  </motion.div>
-                  <p className="text-gray-300 text-lg uppercase tracking-wider">Average Annual Savings</p>
-                </div>
-              </div>
-            }
-          />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h3 className="font-heading text-4xl font-bold text-white md:text-5xl">Accelerate Your Future</h3>
+          <p className="mt-4 max-w-3xl text-lg text-slate-300">
+            Choose the right entry point to launch your transformation with confidence.
+          </p>
 
-          {/* AI for Sales */}
-          <ServiceCard
-            icon={<Users className="w-12 h-12 text-cyber" strokeWidth={1.5} />}
-            title="Sales Acceleration Through Intelligence"
-            description="Empower your sales team with AI-driven insights, predictive lead scoring, and automated workflows that close deals faster."
-            benefits={[
-              'Intelligent lead prioritization',
-              'Predictive sales forecasting',
-              'Automated customer outreach',
-              'Conversation intelligence',
-            ]}
-            ctaText="Transform Your Sales Process"
-            ctaLink="/services/ai-sales"
-            layout="right"
-            visual={
-              <div className="relative h-80 rounded-2xl cyber-card p-10 flex items-center justify-center overflow-hidden group">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-cyber/10 to-tech/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                  animate={{ scale: [1.2, 1, 1.2] }}
-                  transition={{ duration: 8, repeat: Infinity }}
-                />
-                <div className="text-center relative z-10">
-                  <motion.div
-                    className="text-7xl font-bold gradient-text mb-6 tracking-tight"
-                    animate={{ opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-                  >
-                    300%
-                  </motion.div>
-                  <p className="text-gray-300 text-lg uppercase tracking-wider">Increase in Qualified Leads</p>
-                </div>
-              </div>
-            }
-          />
-
-          {/* Technology Accelerator */}
-          <ServiceCard
-            icon={<Rocket className="w-12 h-12 text-tech" strokeWidth={1.5} />}
-            title="Accelerate Innovation at Scale"
-            description="Cut development time by 70% with our AI-powered development tools, automated testing, and intelligent code optimization."
-            benefits={[
-              'Rapid prototyping & deployment',
-              'AI-assisted development',
-              'Automated quality assurance',
-              'Legacy system modernization',
-            ]}
-            ctaText="Accelerate Your Tech Stack"
-            ctaLink="/services/technology-accelerator"
-            layout="left"
-            visual={
-              <div className="relative h-80 rounded-2xl cyber-card p-10 flex items-center justify-center overflow-hidden group">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-tech/10 to-primary-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 7, repeat: Infinity }}
-                />
-                <div className="text-center relative z-10">
-                  <motion.div
-                    className="text-7xl font-bold gradient-text mb-6 tracking-tight"
-                    animate={{ opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                  >
-                    70%
-                  </motion.div>
-                  <p className="text-gray-300 text-lg uppercase tracking-wider">Faster Development Time</p>
-                </div>
-              </div>
-            }
-          />
-
-          {/* End-to-End Solutions */}
-          <ServiceCard
-            icon={<GitBranch className="w-12 h-12 text-primary-400" strokeWidth={1.5} />}
-            title="Complete Transformation Journeys"
-            description="From strategy to implementation to optimization - we orchestrate your entire AI transformation with precision and expertise."
-            benefits={[
-              'Discovery & Strategy',
-              'Design & Architecture',
-              'Development & Integration',
-              'Deployment & Training',
-            ]}
-            ctaText="Start Your Transformation"
-            ctaLink="/services/end-to-end-solutions"
-            layout="right"
-            visual={
-              <div className="relative h-80 rounded-2xl cyber-card p-10 flex items-center justify-center overflow-hidden">
-                <div className="grid grid-cols-2 gap-6 relative z-10">
-                  {[1, 2, 3, 4].map((step) => (
-                    <motion.div
-                      key={step}
-                      className="w-24 h-24 rounded-2xl neon-border bg-gray-900/50 backdrop-blur-xl flex items-center justify-center text-3xl font-bold gradient-text"
-                      animate={{ 
-                        opacity: [0.5, 1, 0.5],
-                      }}
-                      transition={{ 
-                        duration: 3, 
-                        repeat: Infinity,
-                        delay: step * 0.5
-                      }}
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      {step}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            }
-          />
-
-          {/* Strategic Consulting */}
-          <ServiceCard
-            icon={<Target className="w-12 h-12 text-cyber" strokeWidth={1.5} />}
-            title="Strategic Vision Meets Technical Excellence"
-            description="Navigate complex AI landscapes with consultants who combine deep technical expertise with strategic business acumen."
-            benefits={[
-              'AI readiness assessment',
-              'Technology roadmap development',
-              'Change management',
-              'ROI optimization',
-            ]}
-            ctaText="Schedule Strategic Consultation"
-            ctaLink="/services/strategic-consulting"
-            layout="left"
-            visual={
-              <div className="relative h-80 rounded-2xl cyber-card p-10 flex items-center justify-center overflow-hidden group">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-tech/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                  animate={{ scale: [1.1, 1, 1.1] }}
-                  transition={{ duration: 6, repeat: Infinity }}
-                />
-                <div className="text-center relative z-10">
-                  <motion.div
-                    className="text-6xl font-bold mb-6 gradient-text tracking-tight"
-                    animate={{ opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
-                  >
-                    Premium
-                  </motion.div>
-                  <p className="text-gray-300 text-lg uppercase tracking-wider">Strategic Partnership</p>
-                </div>
-              </div>
-            }
-          />
-        </div>
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            {accelerateCards.map((card) => (
+              <article
+                key={card.title}
+                className="rounded-2xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:border-cyan-200/40"
+              >
+                <p className="text-xs uppercase tracking-[0.16em] text-cyan-200">{card.title}</p>
+                <h4 className="mt-2 font-heading text-2xl font-bold text-white">{card.subtitle}</h4>
+                <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">{card.description}</p>
+                <Link
+                  href={card.href}
+                  className="mt-5 inline-flex rounded-lg border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-100 transition hover:border-cyan-200/45 hover:text-cyan-100"
+                >
+                  Learn More
+                </Link>
+              </article>
+            ))}
+          </div>
+        </motion.div>
       </div>
-    </ScrollSection>
+    </section>
   )
 }

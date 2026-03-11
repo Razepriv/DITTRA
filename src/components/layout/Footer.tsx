@@ -6,17 +6,18 @@ import { motion } from 'framer-motion'
 import { Linkedin, Twitter, Github, Mail } from 'lucide-react'
 
 const footerLinks = {
-  Services: [
-    { name: 'AI for Finance', href: '/services/ai-finance' },
-    { name: 'AI for Sales', href: '/services/ai-sales' },
-    { name: 'Technology Accelerator', href: '/services/technology-accelerator' },
-    { name: 'End-to-End Solutions', href: '/services/end-to-end-solutions' },
-    { name: 'Strategic Consulting', href: '/services/strategic-consulting' },
+  Capabilities: [
+    { name: 'Consulting', href: '/capabilities/consulting' },
+    { name: 'AI Agents', href: '/capabilities/ai-agents' },
+    { name: 'Custom Software', href: '/capabilities/custom-software' },
+  ],
+  Solutions: [
+    { name: 'Use Cases', href: '/solutions/use-cases' },
+    { name: 'AI Accelerators', href: '/solutions/ai-accelerators' },
   ],
   Company: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Resources', href: '/resources' },
+    { name: 'Insights', href: '/#success-stories' },
+    { name: 'About', href: '/#team' },
     { name: 'Contact', href: '/contact' },
   ],
   Legal: [
