@@ -166,17 +166,17 @@ export function AiAgentsPage() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.16em] text-cyan-200">{agent.tagline}</p>
-                    <h3 className="mt-2 font-heading text-2xl font-semibold text-white">{agent.title}</h3>
+                    <p className="text-xs uppercase tracking-[0.16em] text-cyan-600 dark:text-cyan-200">{agent.tagline}</p>
+                    <h3 className="mt-2 font-heading text-2xl font-semibold text-slate-900 dark:text-white">{agent.title}</h3>
                   </div>
-                  <div className="rounded-xl border border-white/20 bg-slate-900/70 p-3">
-                    <Icon className="h-5 w-5 text-cyan-200" />
+                  <div className="rounded-xl border border-slate-200 dark:border-white/20 bg-slate-100 dark:bg-slate-900/70 p-3">
+                    <Icon className="h-5 w-5 text-cyan-600 dark:text-cyan-200" />
                   </div>
                 </div>
 
-                <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">{agent.description}</p>
+                <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{agent.description}</p>
 
-                <ul className="mt-5 space-y-2 text-sm text-slate-200">
+                <ul className="mt-5 space-y-2 text-sm text-slate-600 dark:text-slate-200">
                   {agent.features.map((feature) => (
                     <li key={feature} className="flex gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-300" />
@@ -186,7 +186,7 @@ export function AiAgentsPage() {
                 </ul>
 
                 {agent.metric ? (
-                  <div className="mt-5 rounded-xl border border-white/20 bg-slate-900/60 px-4 py-3 text-sm font-semibold text-amber-200">
+                  <div className="mt-5 rounded-xl border border-slate-200 dark:border-white/20 bg-slate-50 dark:bg-slate-900/60 px-4 py-3 text-sm font-semibold text-amber-700 dark:text-amber-200">
                     {agent.metric}
                   </div>
                 ) : null}
@@ -229,15 +229,15 @@ export function AiAgentsPage() {
         </div>
 
         <GlassCard className="mt-6">
-          <h3 className="font-heading text-2xl font-semibold text-white">PO Parser Extension Pack</h3>
-          <ul className="mt-4 grid gap-3 text-sm text-slate-200 md:grid-cols-2">
+          <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">PO Parser Extension Pack</h3>
+          <ul className="mt-4 grid gap-3 text-sm text-slate-600 dark:text-slate-200 md:grid-cols-2">
             {[
               'Bill of Lading (BOL) processing and validation',
               'Proof of Delivery (POD) automation',
               'Invoice matching and three-way reconciliation',
               'Supplier contract extraction and compliance checks',
             ].map((item) => (
-              <li key={item} className="rounded-xl border border-white/10 bg-slate-900/40 p-3">
+              <li key={item} className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-900/40 p-3">
                 {item}
               </li>
             ))}
@@ -252,7 +252,7 @@ export function AiAgentsPage() {
         description="A team of autonomous AI agents that collaborate in real-time to handle data processing, customer support, and decision-making."
       >
         <GlassCard>
-          <p className="max-w-4xl text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="max-w-4xl text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">
             The Agentic Agent Squad unlocks speed, efficiency, and scalability while minimizing manual effort. Teams get smarter workflows, reduced costs, and expanded execution capacity without adding headcount.
           </p>
 
@@ -271,15 +271,15 @@ export function AiAgentsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="relative rounded-xl border border-cyan-200/30 bg-slate-900/55 p-4 text-center"
+                className="relative rounded-xl border border-cyan-400/40 dark:border-cyan-200/30 bg-slate-50 dark:bg-slate-900/55 p-4 text-center"
               >
-                <Bot className="mx-auto mb-2 h-5 w-5 text-cyan-200" />
-                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-100">{node}</p>
+                <Bot className="mx-auto mb-2 h-5 w-5 text-cyan-600 dark:text-cyan-200" />
+                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-700 dark:text-slate-100">{node}</p>
               </motion.div>
             ))}
           </div>
 
-          <div className="mt-6 rounded-xl border border-white/15 bg-gradient-to-r from-blue-600/20 via-cyan-500/10 to-blue-600/20 p-4 text-sm text-slate-200">
+          <div className="mt-6 rounded-xl border border-slate-200 dark:border-white/15 bg-gradient-to-r from-blue-500/8 via-cyan-500/5 to-blue-500/8 dark:from-blue-600/20 dark:via-cyan-500/10 dark:to-blue-600/20 p-4 text-sm text-slate-600 dark:text-slate-200">
             Real-time orchestration ensures agents collaborate as a unified network with human overrides for critical decisions.
           </div>
         </GlassCard>
@@ -292,12 +292,12 @@ export function AiAgentsPage() {
         description="For organizations requiring tailored solutions, Dittra's Custom Agent Dedicated Team builds agents around your exact workflows, systems, and operational context."
       >
         <GlassCard>
-          <p className="text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">
             We work side-by-side with your operators, IT leaders, and business stakeholders to design intelligent agents that plug directly into existing systems while optimizing the entire operating model.
           </p>
           <a
             href="/contact#book-consultation"
-            className="mt-6 inline-flex items-center rounded-xl border border-cyan-200/45 bg-cyan-400/10 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-cyan-100 transition hover:bg-cyan-300/20"
+            className="mt-6 inline-flex items-center rounded-xl border border-cyan-200/45 bg-cyan-400/10 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-cyan-700 dark:text-cyan-100 transition hover:bg-cyan-300/20"
           >
             Build Your Custom Agent
           </a>

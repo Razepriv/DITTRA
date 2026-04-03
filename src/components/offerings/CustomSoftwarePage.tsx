@@ -28,10 +28,10 @@ export function CustomSoftwarePage() {
       >
         <GlassCard>
           <div className="flex items-center gap-3">
-            <Handshake className="h-6 w-6 text-cyan-200" />
-            <h3 className="font-heading text-2xl font-semibold text-white">Managed Services</h3>
+            <Handshake className="h-6 w-6 text-cyan-600 dark:text-cyan-200" />
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">Managed Services</h3>
           </div>
-          <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">
             Our Managed Services provide ongoing support and maintenance for your AI solutions, ensuring they continue to deliver value long after deployment. From updates and performance monitoring to troubleshooting and optimization, Dittra handles technical complexity so your team can stay focused on growth. Your AI infrastructure stays secure, current, and aligned with evolving business needs.
           </p>
         </GlassCard>
@@ -44,10 +44,10 @@ export function CustomSoftwarePage() {
       >
         <GlassCard>
           <div className="flex items-center gap-3">
-            <PenTool className="h-6 w-6 text-cyan-200" />
-            <h3 className="font-heading text-2xl font-semibold text-white">Design and Research</h3>
+            <PenTool className="h-6 w-6 text-cyan-600 dark:text-cyan-200" />
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">Design and Research</h3>
           </div>
-          <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">
             Our Product Design, Service Design, and UX Research offerings focus on functional, user-friendly solutions aligned with real human needs. We prioritize deep research and testing so every interaction is intuitive, seamless, and valuable. Design thinking and behavioral science approaches ensure successful adoption inside teams and customer journeys.
           </p>
         </GlassCard>
@@ -60,10 +60,10 @@ export function CustomSoftwarePage() {
       >
         <GlassCard>
           <div className="flex items-center gap-3">
-            <Code2 className="h-6 w-6 text-cyan-200" />
-            <h3 className="font-heading text-2xl font-semibold text-white">Software and Mobile Development</h3>
+            <Code2 className="h-6 w-6 text-cyan-600 dark:text-cyan-200" />
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">Software and Mobile Development</h3>
           </div>
-          <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">
             Dittra builds scalable web and mobile applications that integrate with your systems while leveraging AI, voice, IoT, and edge computing to improve decisions and customer experiences.
           </p>
 
@@ -75,7 +75,7 @@ export function CustomSoftwarePage() {
               'Voice-enabled application development',
               'IoT and edge computing solutions',
             ].map((item) => (
-              <div key={item} className="rounded-xl border border-white/10 bg-slate-900/45 p-3 text-sm text-slate-200">
+              <div key={item} className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-900/45 p-3 text-sm text-slate-600 dark:text-slate-200">
                 {item}
               </div>
             ))}
@@ -83,7 +83,7 @@ export function CustomSoftwarePage() {
         </GlassCard>
 
         <GlassCard className="mt-5">
-          <h3 className="font-heading text-2xl font-semibold text-white">SaaS Development and Modernization</h3>
+          <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">SaaS Development and Modernization</h3>
           <div className="mt-5 grid gap-3 md:grid-cols-2">
             {[
               'New SaaS Build: cloud-native architecture, design, development, and launch',
@@ -91,7 +91,7 @@ export function CustomSoftwarePage() {
               'Voice of Customer integration for product and roadmap decisions',
               'Technical assessment with prioritized architecture recommendations',
             ].map((item) => (
-              <div key={item} className="rounded-xl border border-blue-200/20 bg-blue-500/10 p-3 text-sm text-slate-100">
+              <div key={item} className="rounded-xl border border-blue-200/20 bg-blue-500/8 dark:bg-blue-500/10 p-3 text-sm text-slate-700 dark:text-slate-100">
                 {item}
               </div>
             ))}
@@ -106,10 +106,10 @@ export function CustomSoftwarePage() {
       >
         <GlassCard>
           <div className="flex items-center gap-3">
-            <Presentation className="h-6 w-6 text-cyan-200" />
-            <h3 className="font-heading text-2xl font-semibold text-white">Think Tank Advisory</h3>
+            <Presentation className="h-6 w-6 text-cyan-600 dark:text-cyan-200" />
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">Think Tank Advisory</h3>
           </div>
-          <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">
             Our Fractional Think Tank Advisory brings forward-thinking experts into your C-suite planning process. Through workshops, scenario planning, and focused research, we help leadership identify disruptive opportunities, shape long-term AI strategy, and make confident decisions in a rapidly changing landscape.
           </p>
         </GlassCard>
@@ -123,10 +123,10 @@ export function CustomSoftwarePage() {
         <div className="grid gap-4 xl:grid-cols-2">
           <GlassCard>
             <div className="flex items-center gap-3">
-              <Workflow className="h-6 w-6 text-cyan-200" />
-              <h3 className="font-heading text-2xl font-semibold text-white">Workflow Automation</h3>
+              <Workflow className="h-6 w-6 text-cyan-600 dark:text-cyan-200" />
+              <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">Workflow Automation</h3>
             </div>
-            <ul className="mt-4 space-y-2 text-sm text-slate-200 md:text-base">
+            <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-200 md:text-base">
               {[
                 'n8n, Make, and custom workflow orchestration',
                 'Multi-step process automation with conditional logic',
@@ -141,8 +141,8 @@ export function CustomSoftwarePage() {
           </GlassCard>
 
           <GlassCard>
-            <h3 className="font-heading text-2xl font-semibold text-white">Document Processing and ETL Pipelines</h3>
-            <ul className="mt-4 space-y-2 text-sm text-slate-200 md:text-base">
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">Document Processing and ETL Pipelines</h3>
+            <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-200 md:text-base">
               {[
                 'Purchase Order extraction and validation',
                 'Invoice processing and three-way matching',
@@ -159,8 +159,8 @@ export function CustomSoftwarePage() {
           </GlassCard>
 
           <GlassCard>
-            <h3 className="font-heading text-2xl font-semibold text-white">Browser Automation and RPA</h3>
-            <ul className="mt-4 space-y-2 text-sm text-slate-200 md:text-base">
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">Browser Automation and RPA</h3>
+            <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-200 md:text-base">
               {[
                 'Browser-based task automation for booking, scheduling, and form workflows',
                 'RPA implementation for legacy systems without APIs',
@@ -175,8 +175,8 @@ export function CustomSoftwarePage() {
           </GlassCard>
 
           <GlassCard>
-            <h3 className="font-heading text-2xl font-semibold text-white">API Integration and Middleware</h3>
-            <ul className="mt-4 space-y-2 text-sm text-slate-200 md:text-base">
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">API Integration and Middleware</h3>
+            <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-200 md:text-base">
               {[
                 'RESTful and GraphQL API development',
                 'Middleware connecting disparate enterprise systems',

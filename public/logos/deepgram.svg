@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40">
+  <!-- Waveform icon: 3 vertical bars of different heights -->
+  <g transform="translate(8, 20)">
+    <rect x="0" y="-8" width="5" height="16" rx="2" fill="#101010"/>
+    <rect x="8" y="-13" width="5" height="26" rx="2" fill="#101010"/>
+    <rect x="16" y="-5" width="5" height="10" rx="2" fill="#101010"/>
+  </g>
+  <!-- Deepgram text -->
+  <text x="38" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="16" fill="#101010" letter-spacing="-0.2">Deepgram</text>
+</svg>

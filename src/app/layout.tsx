@@ -3,15 +3,16 @@ import { Outfit, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { ThemeProvider } from '@/lib/theme'
 import { organizationSchema, websiteSchema } from '@/lib/structured-data'
 
-const outfit = Outfit({ 
+const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-outfit',
   display: 'swap',
 })
 
-const spaceGrotesk = Space_Grotesk({ 
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk',
   display: 'swap',
@@ -35,14 +36,7 @@ export const metadata: Metadata = {
     title: 'Dittra - The Future of AI-Powered Business Solutions',
     description: 'Transform your enterprise with cutting-edge AI solutions',
     siteName: 'Dittra',
-    images: [
-      {
-        url: '/og-image.svg',
-        width: 1200,
-        height: 630,
-        alt: 'Dittra - AI-Powered Digital Transformation',
-      },
-    ],
+    images: [{ url: '/og-image.svg', width: 1200, height: 630, alt: 'Dittra - AI-Powered Digital Transformation' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -53,24 +47,24 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+    googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${spaceGrotesk.variable}`}>
+    <html
+      lang="en"
+      className={`${outfit.variable} ${spaceGrotesk.variable} dark`}
+      suppressHydrationWarning
+    >
       <head>
+        {/* Anti-flash: set theme before React hydrates */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('dittra-theme');if(t==='light'){document.documentElement.classList.remove('dark')}else if(t==='dark'){document.documentElement.classList.add('dark')}else{if(!window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.remove('dark')}}}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -81,18 +75,19 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans">
-        {/* Skip to main content for keyboard navigation */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-primary focus:text-white focus:rounded-lg focus:shadow-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-cyan-500 focus:text-white focus:rounded-lg focus:shadow-lg"
         >
           Skip to main content
         </a>
-        <Header />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          <main id="main-content" className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

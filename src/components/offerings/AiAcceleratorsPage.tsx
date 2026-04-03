@@ -108,17 +108,17 @@ export function AiAcceleratorsPage() {
                   <GlassCard className="h-full">
                     <div className="flex items-center gap-3">
                       <div className="rounded-xl border border-cyan-200/40 bg-cyan-400/10 p-3">
-                        <Icon className="h-5 w-5 text-cyan-100" />
+                        <Icon className="h-5 w-5 text-cyan-700 dark:text-cyan-100" />
                       </div>
-                      <h3 className="font-heading text-3xl font-semibold text-white">{accelerator.title}</h3>
+                      <h3 className="font-heading text-3xl font-semibold text-slate-900 dark:text-white">{accelerator.title}</h3>
                     </div>
 
-                    <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">{accelerator.description}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-300 md:text-base">{accelerator.details}</p>
+                    <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{accelerator.description}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-300 md:text-base">{accelerator.details}</p>
 
                     <div className="mt-5 grid gap-2">
                       {accelerator.meta.map((item) => (
-                        <div key={item} className="rounded-xl border border-white/10 bg-slate-900/45 px-3 py-2 text-sm text-slate-200">
+                        <div key={item} className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-900/45 px-3 py-2 text-sm text-slate-600 dark:text-slate-200">
                           {item}
                         </div>
                       ))}
@@ -128,11 +128,11 @@ export function AiAcceleratorsPage() {
 
                 <div className={visualOrder}>
                   <GlassCard className="h-full">
-                    <div className="flex h-full min-h-[260px] items-center justify-center rounded-2xl border border-white/15 bg-gradient-to-br from-blue-600/25 via-cyan-500/15 to-amber-400/10 p-8">
+                    <div className="flex h-full min-h-[260px] items-center justify-center rounded-2xl border border-slate-200 dark:border-white/15 bg-gradient-to-br from-blue-600/25 via-cyan-500/15 to-amber-400/10 p-8">
                       <div className="text-center">
-                        <Icon className="mx-auto h-12 w-12 text-cyan-100" />
-                        <p className="mt-4 text-xs uppercase tracking-[0.2em] text-cyan-200">Accelerator Program</p>
-                        <h4 className="mt-2 font-heading text-4xl font-bold text-white">{accelerator.title}</h4>
+                        <Icon className="mx-auto h-12 w-12 text-cyan-700 dark:text-cyan-100" />
+                        <p className="mt-4 text-xs uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-200">Accelerator Program</p>
+                        <h4 className="mt-2 font-heading text-4xl font-bold text-slate-900 dark:text-white">{accelerator.title}</h4>
                       </div>
                     </div>
                   </GlassCard>

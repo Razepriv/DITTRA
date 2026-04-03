@@ -201,7 +201,7 @@ export function UseCasesPage() {
         description="Explore practical AI worker patterns by function, from revenue generation to frontline operations."
       >
         <div className="overflow-x-auto pb-2">
-          <div className="inline-flex min-w-full gap-2 rounded-2xl border border-white/15 bg-slate-950/45 p-2 md:min-w-0">
+          <div className="inline-flex min-w-full gap-2 rounded-2xl border border-slate-200 dark:border-white/15 bg-slate-950/45 p-2 md:min-w-0">
             {useCaseTabs.map((tab) => (
               <button
                 key={tab.key}
@@ -210,7 +210,7 @@ export function UseCasesPage() {
                 className={`rounded-xl px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] transition ${
                   activeTab === tab.key
                     ? 'bg-white text-slate-900'
-                    : 'text-slate-300 hover:bg-white/10 hover:text-white'
+                    : 'text-slate-500 dark:text-slate-300 hover:bg-white/10 hover:text-slate-900 dark:text-white'
                 }`}
               >
                 {tab.label}
@@ -221,22 +221,22 @@ export function UseCasesPage() {
 
         <div className="mt-6 grid gap-6 xl:grid-cols-[0.85fr_1.15fr]">
           <GlassCard>
-            <div className="rounded-2xl border border-cyan-200/30 bg-gradient-to-br from-blue-500/25 via-cyan-500/15 to-transparent p-6">
-              <div className="mb-5 inline-flex rounded-xl border border-white/20 bg-slate-900/50 p-3">
-                <ActiveIcon className="h-6 w-6 text-cyan-100" />
+            <div className="rounded-2xl border border-cyan-400/40 dark:border-cyan-200/30 bg-gradient-to-br from-blue-500/25 via-cyan-500/15 to-transparent p-6">
+              <div className="mb-5 inline-flex rounded-xl border border-slate-200 dark:border-white/20 bg-slate-900/50 p-3">
+                <ActiveIcon className="h-6 w-6 text-cyan-700 dark:text-cyan-100" />
               </div>
-              <p className="text-xs uppercase tracking-[0.18em] text-cyan-200">{currentTab.label}</p>
-              <h3 className="mt-2 font-heading text-3xl font-bold text-white">{currentTab.visual}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">{currentTab.description}</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-cyan-600 dark:text-cyan-200">{currentTab.label}</p>
+              <h3 className="mt-2 font-heading text-3xl font-bold text-slate-900 dark:text-white">{currentTab.visual}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{currentTab.description}</p>
             </div>
           </GlassCard>
 
           <div className="grid gap-4 md:grid-cols-2">
             {currentTab.cards.map((card, index) => (
               <GlassCard key={card.title} className="h-full">
-                <p className="text-xs uppercase tracking-[0.16em] text-cyan-200">Use Case {index + 1}</p>
-                <h3 className="mt-2 font-heading text-2xl font-semibold text-white">{card.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-200 md:text-base">{card.description}</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-cyan-600 dark:text-cyan-200">Use Case {index + 1}</p>
+                <h3 className="mt-2 font-heading text-2xl font-semibold text-slate-900 dark:text-white">{card.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{card.description}</p>
               </GlassCard>
             ))}
           </div>
@@ -250,7 +250,7 @@ export function UseCasesPage() {
         description="Switch by industry to review focused deployment opportunities."
       >
         <div className="overflow-x-auto pb-2">
-          <div className="inline-flex min-w-full gap-2 rounded-2xl border border-white/15 bg-slate-950/45 p-2 md:min-w-0">
+          <div className="inline-flex min-w-full gap-2 rounded-2xl border border-slate-200 dark:border-white/15 bg-slate-950/45 p-2 md:min-w-0">
             {industryTabs.map((tab) => {
               const Icon = tab.icon
               return (
@@ -261,7 +261,7 @@ export function UseCasesPage() {
                   className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold uppercase tracking-[0.1em] transition ${
                     activeIndustry === tab.key
                       ? 'bg-white text-slate-900'
-                      : 'text-slate-300 hover:bg-white/10 hover:text-white'
+                      : 'text-slate-500 dark:text-slate-300 hover:bg-white/10 hover:text-slate-900 dark:text-white'
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -275,8 +275,8 @@ export function UseCasesPage() {
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {currentIndustry.cards.map((card) => (
             <GlassCard key={card} className="h-full">
-              <h3 className="font-heading text-xl font-semibold text-white">{card}</h3>
-              <p className="mt-3 text-sm text-slate-300">
+              <h3 className="font-heading text-xl font-semibold text-slate-900 dark:text-white">{card}</h3>
+              <p className="mt-3 text-sm text-slate-500 dark:text-slate-300">
                 AI workers orchestrate this workflow with live signals, business rules, and human oversight for critical decisions.
               </p>
             </GlassCard>

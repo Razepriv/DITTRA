@@ -102,8 +102,8 @@ export function ConsultingPage() {
             },
           ].map((item) => (
             <GlassCard key={item.title}>
-              <h3 className="font-heading text-2xl font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-200 md:text-base">{item.description}</p>
+              <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{item.description}</p>
             </GlassCard>
           ))}
         </div>
@@ -117,10 +117,10 @@ export function ConsultingPage() {
       >
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
           <GlassCard>
-            <p className="text-base leading-relaxed text-slate-200 md:text-lg">
+            <p className="text-base leading-relaxed text-slate-600 dark:text-slate-200 md:text-lg">
               For businesses, this translates to cost savings, improved productivity, and faster responses to market changes.
             </p>
-            <ul className="mt-6 space-y-3 text-sm text-slate-200 md:text-base">
+            <ul className="mt-6 space-y-3 text-sm text-slate-600 dark:text-slate-200 md:text-base">
               {[
                 'Streamline operations through autonomous workflow execution.',
                 'Enhance decisions with real-time, context-aware analysis.',
@@ -153,8 +153,8 @@ export function ConsultingPage() {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
           <GlassCard>
-            <h3 className="font-heading text-2xl font-semibold text-white">Tools and Resources Required</h3>
-            <ul className="mt-4 space-y-2 text-sm text-slate-200 md:text-base">
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">Tools and Resources Required</h3>
+            <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-200 md:text-base">
               {[
                 'Voice platform for AI-enabled customer interaction',
                 'Agent orchestration platform for workflow management',
@@ -170,8 +170,8 @@ export function ConsultingPage() {
           </GlassCard>
 
           <GlassCard>
-            <h3 className="font-heading text-2xl font-semibold text-white">Key People</h3>
-            <ul className="mt-4 space-y-2 text-sm text-slate-200 md:text-base">
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">Key People</h3>
+            <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-200 md:text-base">
               {[
                 'Business Stakeholder: drives alignment with organizational goals',
                 'IT Stakeholder: ensures technical feasibility and system integration',
@@ -221,8 +221,8 @@ export function ConsultingPage() {
             },
           ].map((item) => (
             <GlassCard key={item.title}>
-              <h3 className="font-heading text-2xl font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-200 md:text-base">{item.body}</p>
+              <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{item.body}</p>
             </GlassCard>
           ))}
         </div>
@@ -249,8 +249,8 @@ export function ConsultingPage() {
             },
           ].map((item) => (
             <GlassCard key={item.title}>
-              <h3 className="font-heading text-2xl font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-200 md:text-base">{item.body}</p>
+              <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{item.body}</p>
             </GlassCard>
           ))}
         </div>
@@ -277,8 +277,8 @@ export function ConsultingPage() {
             },
           ].map((item) => (
             <GlassCard key={item.title}>
-              <h3 className="font-heading text-xl font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-200 md:text-base">{item.body}</p>
+              <h3 className="font-heading text-xl font-semibold text-slate-900 dark:text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{item.body}</p>
             </GlassCard>
           ))}
         </div>
@@ -291,8 +291,8 @@ export function ConsultingPage() {
           className="mt-6"
         >
           <GlassCard>
-            <h3 className="font-heading text-2xl font-semibold text-white">Best Practices</h3>
-            <ul className="mt-4 space-y-2 text-sm text-slate-200 md:text-base">
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">Best Practices</h3>
+            <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-200 md:text-base">
               {[
                 'Start small: pilot with one high-impact use case, then scale.',
                 'Monitor and measure: track performance metrics to assess ROI.',
@@ -310,14 +310,14 @@ export function ConsultingPage() {
 
       <SectionBlock id="next-steps" eyebrow="Section 8" title="Next Steps for Scaling">
         <GlassCard>
-          <ul className="grid gap-3 text-sm text-slate-200 md:grid-cols-2 md:text-base">
+          <ul className="grid gap-3 text-sm text-slate-600 dark:text-slate-200 md:grid-cols-2 md:text-base">
             {[
               'Expand into predictive analytics and strategic decision-making.',
               'Strengthen trust, transparency, and governance as AI scales.',
               'Connect Agentic AI to more platforms and systems.',
               'Partner with Dittra for mapping, development, and deployment.',
             ].map((item) => (
-              <li key={item} className="flex gap-2 rounded-xl border border-white/10 bg-slate-900/40 p-4">
+              <li key={item} className="flex gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-900/40 p-4">
                 <span className="mt-1 h-2 w-2 rounded-full bg-cyan-300" />
                 <span>{item}</span>
               </li>

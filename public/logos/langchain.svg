@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40">
+  <!-- Two chain link circles -->
+  <g transform="translate(10, 20)">
+    <!-- Left link -->
+    <circle cx="0" cy="-4" r="7" fill="none" stroke="#1C3C3C" stroke-width="3"/>
+    <!-- Right link -->
+    <circle cx="10" cy="4" r="7" fill="none" stroke="#1C3C3C" stroke-width="3"/>
+  </g>
+  <!-- LangChain text -->
+  <text x="32" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="16" fill="#1C3C3C" letter-spacing="-0.2">LangChain</text>
+</svg>

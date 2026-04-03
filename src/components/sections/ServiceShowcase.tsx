@@ -59,33 +59,27 @@ export function ServiceShowcase() {
 
   return (
     <section id="services" className="relative overflow-hidden py-24 lg:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0F1C] via-[#0B1324] to-[#0A0F1C]" />
-      <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(148,163,184,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.12)_1px,transparent_1px)] [background-size:36px_36px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white dark:from-[#0A0F1C] dark:via-[#0B1324] dark:to-[#0A0F1C]" />
+      <div className="absolute inset-0 opacity-15 [background-image:linear-gradient(rgba(6,182,212,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.08)_1px,transparent_1px)] [background-size:36px_36px]" />
 
       <div className="container relative z-10 mx-auto space-y-24 px-6 lg:px-12">
-        <motion.div
-          className="text-center mb-24"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="font-heading text-5xl font-bold tracking-tight text-white lg:text-7xl">
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white lg:text-7xl">
             Capabilities
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-xl text-slate-300 lg:text-2xl">
+          <p className="mx-auto mt-4 md:mt-6 max-w-3xl text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 lg:text-2xl">
             Explore how Dittra combines acceleration programs, autonomous agents, and human squads to deliver enterprise outcomes.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 p-2">
+          <div className="mt-10 inline-flex flex-wrap justify-center gap-1.5 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-white/[0.04] p-1.5 backdrop-blur-sm">
             {capabilityTabs.map((tab) => (
               <button
                 key={tab.key}
                 type="button"
                 onClick={() => setActiveTab(tab.key)}
-                className={`rounded-xl px-5 py-2 text-sm font-semibold uppercase tracking-[0.12em] transition ${
+                className={`rounded-xl px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.12em] transition-all duration-200 ${
                   activeTab === tab.key
-                    ? 'bg-white text-slate-900'
-                    : 'text-slate-300 hover:bg-white/10 hover:text-white'
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-md shadow-cyan-500/25'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white hover:shadow-sm'
                 }`}
               >
                 {tab.label}
@@ -93,47 +87,50 @@ export function ServiceShowcase() {
             ))}
           </div>
 
-          <div className="mx-auto mt-8 max-w-5xl rounded-3xl border border-white/15 bg-white/[0.06] p-8 text-left backdrop-blur-xl">
-            <p className="text-xl leading-relaxed text-slate-200">{currentTab.description}</p>
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            className="mx-auto mt-8 max-w-5xl rounded-3xl border border-slate-200 dark:border-white/15 bg-white/80 dark:bg-white/[0.06] p-5 md:p-8 text-left backdrop-blur-xl shadow-sm dark:shadow-none"
+          >
+            <p className="text-xl leading-relaxed text-slate-700 dark:text-slate-200">{currentTab.description}</p>
             <Link
               href={currentTab.href}
-              className="mt-6 inline-flex rounded-xl border border-cyan-200/40 bg-cyan-400/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-cyan-100 transition hover:bg-cyan-300/20"
+              className="mt-6 inline-flex rounded-xl border border-cyan-400/40 bg-cyan-500/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-cyan-700 dark:text-cyan-100 transition hover:bg-cyan-500/20"
             >
               Learn More
             </Link>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="font-heading text-4xl font-bold text-white md:text-5xl">Accelerate Your Future</h3>
-          <p className="mt-4 max-w-3xl text-lg text-slate-300">
+        <div>
+          <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white lg:text-5xl">
+            Accelerate Your Future
+          </h3>
+          <p className="mt-3 md:mt-4 max-w-3xl text-base sm:text-lg text-slate-600 dark:text-slate-300">
             Choose the right entry point to launch your transformation with confidence.
           </p>
 
-          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          <div className="mt-6 md:mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {accelerateCards.map((card) => (
               <article
                 key={card.title}
-                className="rounded-2xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:border-cyan-200/40"
+                className="rounded-2xl border border-slate-200 dark:border-white/15 bg-white/80 dark:bg-white/[0.06] p-6 backdrop-blur-xl shadow-sm dark:shadow-none transition hover:-translate-y-1 hover:border-cyan-400/40 dark:hover:border-cyan-200/40"
               >
-                <p className="text-xs uppercase tracking-[0.16em] text-cyan-200">{card.title}</p>
-                <h4 className="mt-2 font-heading text-2xl font-bold text-white">{card.subtitle}</h4>
-                <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">{card.description}</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-cyan-600 dark:text-cyan-200">{card.title}</p>
+                <h4 className="mt-2 font-heading text-2xl font-bold text-slate-900 dark:text-white">{card.subtitle}</h4>
+                <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{card.description}</p>
                 <Link
                   href={card.href}
-                  className="mt-5 inline-flex rounded-lg border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-100 transition hover:border-cyan-200/45 hover:text-cyan-100"
+                  className="mt-5 inline-flex rounded-lg border border-slate-300 dark:border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-700 dark:text-slate-100 transition hover:border-cyan-400/50 hover:text-cyan-600 dark:hover:text-cyan-100"
                 >
                   Learn More
                 </Link>
               </article>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

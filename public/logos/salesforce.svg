@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40">
+  <!-- Cloud shape -->
+  <path d="M30 28 Q20 28 20 21 Q20 15 26 14 Q25 8 31 7 Q35 3 40 5 Q43 2 48 3 Q55 2 58 8 Q63 8 63 14 Q68 15 68 21 Q68 28 60 28 Z" fill="#00A1E0"/>
+  <!-- salesforce text -->
+  <text x="75" y="26" font-family="Arial,sans-serif" font-size="15" fill="#00A1E0" font-weight="700" letter-spacing="0.2">salesforce</text>
+  <!-- Cloud label -->
+  <text x="30" y="21" font-family="Arial,sans-serif" font-size="7" fill="white" font-weight="700" text-anchor="middle">cloud</text>
+</svg>

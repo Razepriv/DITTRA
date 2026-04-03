@@ -1,10 +1,11 @@
 'use client'
 
 import { ScrollSection } from '@/components/ui/ScrollSection'
-import { GlassCard } from '@/components/ui/GlassCard'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Linkedin } from 'lucide-react'
 import { useState } from 'react'
+
+const cardBase =
+  'h-full rounded-2xl border border-slate-200 dark:border-white/15 bg-white/90 dark:bg-white/[0.06] backdrop-blur-xl shadow-sm dark:shadow-none overflow-hidden'
 
 const team = [
   {
@@ -45,111 +46,98 @@ export function TeamSection() {
   const [flippedCard, setFlippedCard] = useState<number | null>(null)
 
   return (
-    <ScrollSection id="team" className="bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold font-heading mb-4 text-gray-900">
+    <ScrollSection
+      id="team"
+      className="relative py-24 lg:py-32 overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-[#0A0F1C] dark:via-[#0B1324] dark:to-[#0D1526]" />
+      <div className="absolute inset-0 bg-grid opacity-10 dark:opacity-15" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-4 text-slate-900 dark:text-white">
             <span className="gradient-text">Meet the Visionaries</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             World-class team combining deep technical expertise with business acumen
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, index) => (
-            <motion.div
-              key={index}
-              className="relative h-96 cursor-pointer perspective-1000"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onHoverStart={() => setFlippedCard(index)}
-              onHoverEnd={() => setFlippedCard(null)}
-            >
-              <AnimatePresence mode="wait">
-                {flippedCard !== index ? (
-                  // Front of card
-                  <motion.div
-                    key="front"
-                    className="absolute inset-0"
-                    initial={{ rotateY: 0 }}
-                    exit={{ rotateY: 90 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <GlassCard className="h-full flex flex-col items-center justify-center text-center">
-                      {/* Avatar */}
-                      <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-cyber flex items-center justify-center text-4xl font-bold text-white mb-6">
-                        {member.image}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+          {team.map((member, index) => {
+            const isFlipped = flippedCard === index
+            return (
+              <div
+                key={index}
+                className="relative h-80 md:h-96 cursor-pointer"
+                onMouseEnter={() => setFlippedCard(index)}
+                onMouseLeave={() => setFlippedCard(null)}
+                onClick={() => setFlippedCard(isFlipped ? null : index)}
+                aria-label={`Learn more about ${member.name}`}
+              >
+                {/* Front */}
+                <div
+                  className={`${cardBase} absolute inset-0 flex flex-col items-center text-center p-6 transition-opacity duration-300 ${
+                    isFlipped ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                  }`}
+                >
+                  <div className="flex-1 flex items-center justify-center">
+                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-3xl font-bold text-white shadow-lg shadow-cyan-500/25">
+                      {member.image}
+                    </div>
+                  </div>
+                  <div className="w-full">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-cyan-600 dark:text-cyan-400 text-sm mb-3">{member.title}</p>
+                    <p className="text-xs text-slate-400 dark:text-slate-500">
+                      Tap or hover to learn more
+                    </p>
+                  </div>
+                </div>
+
+                {/* Back */}
+                <div
+                  className={`${cardBase} absolute inset-0 flex flex-col p-6 transition-opacity duration-300 ${
+                    isFlipped ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}
+                >
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                      {member.bio}
+                    </p>
+                    <div>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 mb-2">
+                        Expertise
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {member.expertise.map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="text-xs bg-cyan-500/10 dark:bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border border-cyan-400/20 px-2 py-1 rounded-full"
+                          >
+                            {skill}
+                          </span>
+                        ))}
                       </div>
-
-                      {/* Name & Title */}
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {member.name}
-                      </h3>
-                      <p className="text-primary mb-4">{member.title}</p>
-
-                      <p className="text-sm text-gray-600">
-                        Hover to learn more
-                      </p>
-                    </GlassCard>
-                  </motion.div>
-                ) : (
-                  // Back of card
-                  <motion.div
-                    key="back"
-                    className="absolute inset-0"
-                    initial={{ rotateY: -90 }}
-                    animate={{ rotateY: 0 }}
-                    transition={{ duration: 0.3 }}
+                    </div>
+                  </div>
+                  <a
+                    href={member.linkedin}
+                    className="flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors py-2 border-t border-slate-100 dark:border-white/10 text-sm mt-4"
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    <GlassCard className="h-full flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">
-                          {member.name}
-                        </h3>
-                        <p className="text-sm text-gray-700 mb-4">
-                          {member.bio}
-                        </p>
-
-                        <div className="mb-4">
-                          <h4 className="text-sm font-semibold text-primary mb-2">
-                            Expertise:
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {member.expertise.map((skill, idx) => (
-                              <span
-                                key={idx}
-                                className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      <a
-                        href={member.linkedin}
-                        className="flex items-center justify-center gap-2 text-gray-900 hover:text-primary transition-colors py-2 border-t border-gray-200"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Linkedin className="w-5 h-5" />
-                        <span className="text-sm">Connect on LinkedIn</span>
-                      </a>
-                    </GlassCard>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                    <Linkedin className="w-4 h-4" />
+                    Connect on LinkedIn
+                  </a>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </ScrollSection>

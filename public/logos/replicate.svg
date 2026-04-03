@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40">
+  <!-- Play button triangle in a circle -->
+  <circle cx="18" cy="20" r="13" fill="#000000"/>
+  <polygon points="14,14 14,26 26,20" fill="white"/>
+  <!-- Replicate text -->
+  <text x="38" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="16" fill="#000000" letter-spacing="-0.2">Replicate</text>
+</svg>

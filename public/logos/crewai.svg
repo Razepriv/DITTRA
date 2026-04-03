@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 40">
+  <!-- Small crew dot mark -->
+  <circle cx="12" cy="20" r="8" fill="#FF4F00"/>
+  <circle cx="12" cy="20" r="4" fill="white"/>
+  <!-- crewAI text -->
+  <text x="27" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="17" fill="#FF4F00" letter-spacing="-0.2">crew<tspan font-weight="700">AI</tspan></text>
+</svg>

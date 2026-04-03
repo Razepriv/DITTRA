@@ -85,19 +85,50 @@ export const globalRoiMetrics = [
 ]
 
 export const integrationItems = [
-  { category: 'AI/LLM', names: ['OpenAI', 'Claude', 'Gemini', 'Llama', 'Stable Diffusion', 'Replicate'] },
-  { category: 'Agent Frameworks', names: ['CrewAI', 'AutoGen AI', 'LangChain', 'Voiceflow'] },
-  { category: 'Voice', names: ['ElevenLabs', 'Deepgram', 'Whisper', 'VAPI'] },
-  { category: 'Automation', names: ['n8n', 'Make', 'Zapier', 'Custom Middleware'] },
-  { category: 'Cloud', names: ['AWS', 'Azure', 'Google Cloud'] },
-  { category: 'Enterprise', names: ['Salesforce', 'Oracle', 'SAP', 'Microsoft Dynamics'] },
+  { category: 'AI/LLM', items: [
+    { name: 'OpenAI', logo: '/logos/openai.svg', darkInvert: true },
+    { name: 'Claude', logo: '/logos/anthropic.svg', darkInvert: true },
+    { name: 'Gemini', logo: '/logos/gemini.svg', darkInvert: false },
+    { name: 'Llama', logo: '/logos/meta.svg', darkInvert: false },
+    { name: 'Stable Diffusion', logo: null, darkInvert: false },
+    { name: 'Replicate', logo: '/logos/replicate.svg', darkInvert: true },
+  ]},
+  { category: 'Agent Frameworks', items: [
+    { name: 'CrewAI', logo: '/logos/crewai.svg', darkInvert: false },
+    { name: 'AutoGen AI', logo: null, darkInvert: false },
+    { name: 'LangChain', logo: '/logos/langchain.svg', darkInvert: true },
+    { name: 'Voiceflow', logo: '/logos/voiceflow.svg', darkInvert: false },
+  ]},
+  { category: 'Voice', items: [
+    { name: 'ElevenLabs', logo: '/logos/elevenlabs.svg', darkInvert: true },
+    { name: 'Deepgram', logo: '/logos/deepgram.svg', darkInvert: true },
+    { name: 'Whisper', logo: null, darkInvert: false },
+    { name: 'VAPI', logo: '/logos/vapi.svg', darkInvert: false },
+  ]},
+  { category: 'Automation', items: [
+    { name: 'n8n', logo: '/logos/n8n.svg', darkInvert: false },
+    { name: 'Make', logo: '/logos/make.svg', darkInvert: false },
+    { name: 'Zapier', logo: '/logos/zapier.svg', darkInvert: false },
+    { name: 'Custom Middleware', logo: null, darkInvert: false },
+  ]},
+  { category: 'Cloud', items: [
+    { name: 'AWS', logo: '/logos/aws.svg', darkInvert: false },
+    { name: 'Azure', logo: '/logos/microsoft.svg', darkInvert: false },
+    { name: 'Google Cloud', logo: '/logos/google.svg', darkInvert: false },
+  ]},
+  { category: 'Enterprise', items: [
+    { name: 'Salesforce', logo: '/logos/salesforce.svg', darkInvert: false },
+    { name: 'Oracle', logo: '/logos/oracle.svg', darkInvert: false },
+    { name: 'SAP', logo: '/logos/sap.svg', darkInvert: false },
+    { name: 'Microsoft Dynamics', logo: '/logos/microsoft.svg', darkInvert: false },
+  ]},
 ]
 
 export function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative overflow-hidden bg-[#0A0F1C] text-slate-100">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(37,99,235,0.24),transparent_35%),radial-gradient(circle_at_80%_30%,rgba(6,182,212,0.2),transparent_38%),radial-gradient(circle_at_50%_90%,rgba(245,158,11,0.12),transparent_40%)]" />
-      <div className="pointer-events-none absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(148,163,184,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.1)_1px,transparent_1px)] [background-size:36px_36px]" />
+    <div className="relative overflow-hidden bg-[#F0F4FF] dark:bg-[#0A0F1C] text-slate-900 dark:text-slate-100">
+      <div className="pointer-events-none absolute inset-0 dark:bg-[radial-gradient(circle_at_18%_20%,rgba(37,99,235,0.18),transparent_35%),radial-gradient(circle_at_80%_30%,rgba(6,182,212,0.15),transparent_38%),radial-gradient(circle_at_50%_90%,rgba(245,158,11,0.08),transparent_40%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-15 [background-image:linear-gradient(rgba(6,182,212,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.08)_1px,transparent_1px)] [background-size:36px_36px]" />
       <div className="relative">{children}</div>
     </div>
   )
@@ -112,8 +143,8 @@ export function PageHero({
   secondaryCta,
 }: PageHeroProps) {
   return (
-    <section className="relative pt-36 pb-20 md:pt-40 md:pb-24">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
+    <section className="relative pt-24 sm:pt-32 md:pt-40 pb-16 md:pb-24">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10">
         <motion.div
           initial="hidden"
           animate="show"
@@ -121,14 +152,16 @@ export function PageHero({
           className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end"
         >
           <motion.div variants={fadeUp}>
-            <p className="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100">
+            <p className="mb-5 inline-flex rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-100">
               {pageTitle}
             </p>
-            <h1 className="font-heading text-4xl font-bold leading-tight text-white md:text-6xl lg:text-7xl">
+            <h1 className="font-heading text-3xl sm:text-4xl font-bold leading-tight text-slate-900 dark:text-white md:text-5xl lg:text-7xl">
               {headline}
             </h1>
-            <p className="mt-5 max-w-3xl text-xl text-slate-200 md:text-2xl">{subtitle}</p>
-            {description ? <p className="mt-5 max-w-3xl text-base text-slate-300 md:text-lg">{description}</p> : null}
+            <p className="mt-4 md:mt-5 max-w-3xl text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-200 lg:text-2xl">{subtitle}</p>
+            {description ? (
+              <p className="mt-5 max-w-3xl text-base text-slate-500 dark:text-slate-300 md:text-lg">{description}</p>
+            ) : null}
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 href={primaryCta.href}
@@ -140,7 +173,7 @@ export function PageHero({
               {secondaryCta ? (
                 <Link
                   href={secondaryCta.href}
-                  className="inline-flex items-center justify-center rounded-xl border border-blue-300/40 bg-blue-500/10 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-blue-100 transition hover:border-blue-200/70 hover:bg-blue-400/20"
+                  className="inline-flex items-center justify-center rounded-xl border border-blue-400/40 bg-blue-500/10 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-100 transition hover:border-blue-400/70 hover:bg-blue-400/20"
                 >
                   {secondaryCta.label}
                 </Link>
@@ -149,8 +182,8 @@ export function PageHero({
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <div className="relative rounded-3xl border border-white/15 bg-white/8 p-6 backdrop-blur-2xl">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/25 via-transparent to-cyan-400/10" />
+            <div className="relative rounded-3xl border border-slate-200 dark:border-white/15 bg-white/70 dark:bg-white/8 p-6 backdrop-blur-2xl shadow-sm dark:shadow-none">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-400/8 dark:from-blue-500/25 dark:to-cyan-400/10" />
               <div className="relative grid gap-4 sm:grid-cols-2">
                 {[
                   { label: 'ROI', value: '120X' },
@@ -158,9 +191,12 @@ export function PageHero({
                   { label: 'Cost Reduction', value: '10X' },
                   { label: 'Call Wait Time', value: 'Zero' },
                 ].map((item) => (
-                  <div key={item.label} className="rounded-2xl border border-white/20 bg-slate-950/45 p-4">
-                    <p className="text-xs uppercase tracking-[0.16em] text-slate-300">{item.label}</p>
-                    <p className="mt-2 font-heading text-2xl font-bold text-white">{item.value}</p>
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-slate-200 dark:border-white/20 bg-white/80 dark:bg-slate-950/45 p-4"
+                  >
+                    <p className="text-xs uppercase tracking-[0.16em] text-slate-500 dark:text-slate-300">{item.label}</p>
+                    <p className="mt-2 font-heading text-2xl font-bold text-slate-900 dark:text-white">{item.value}</p>
                   </div>
                 ))}
               </div>
@@ -175,20 +211,16 @@ export function PageHero({
 export function SectionBlock({ id, eyebrow, title, description, className, children }: SectionBlockProps) {
   return (
     <section id={id} className={cn('relative py-14 md:py-20', className)}>
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          className="mb-10"
-        >
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div className="mb-8 md:mb-10">
           {eyebrow ? (
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">{eyebrow}</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-200">{eyebrow}</p>
           ) : null}
-          <h2 className="font-heading text-3xl font-bold text-white md:text-5xl">{title}</h2>
-          {description ? <p className="mt-4 max-w-4xl text-base text-slate-300 md:text-lg">{description}</p> : null}
-        </motion.div>
+          <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white md:text-4xl lg:text-5xl">{title}</h2>
+          {description ? (
+            <p className="mt-4 max-w-4xl text-base text-slate-600 dark:text-slate-300 md:text-lg">{description}</p>
+          ) : null}
+        </div>
         {children}
       </div>
     </section>
@@ -199,8 +231,8 @@ export function GlassCard({ className, children }: GlassCardProps) {
   return (
     <div
       className={cn(
-        'relative rounded-2xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-xl',
-        'before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:p-px before:[background:linear-gradient(145deg,rgba(148,163,184,0.45),rgba(37,99,235,0.25),rgba(6,182,212,0.3))] before:[mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[mask-composite:exclude]',
+        'relative rounded-2xl border border-slate-200 dark:border-white/15 bg-white/80 dark:bg-white/[0.06] p-6 backdrop-blur-xl shadow-sm dark:shadow-none',
+        'before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:p-px before:[background:linear-gradient(145deg,rgba(6,182,212,0.25),rgba(59,130,246,0.2),rgba(6,182,212,0.15))] before:[mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[mask-composite:exclude]',
         className
       )}
     >
@@ -211,23 +243,15 @@ export function GlassCard({ className, children }: GlassCardProps) {
 
 export function MetricsGrid({ metrics }: MetricsGridProps) {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={stagger}
-      className="grid gap-4 md:grid-cols-2 xl:grid-cols-4"
-    >
+    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
       {metrics.map((metric) => (
-        <motion.div key={metric.label} variants={fadeUp}>
-          <GlassCard className="h-full">
-            <p className="text-xs uppercase tracking-[0.16em] text-slate-300">{metric.label}</p>
-            <p className="mt-3 font-heading text-3xl font-bold text-white md:text-4xl">{metric.value}</p>
-            <p className="mt-2 text-sm text-slate-300">{metric.context}</p>
-          </GlassCard>
-        </motion.div>
+        <GlassCard key={metric.label} className="h-full">
+          <p className="text-xs uppercase tracking-[0.16em] text-slate-500 dark:text-slate-300">{metric.label}</p>
+          <p className="mt-3 font-heading text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">{metric.value}</p>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{metric.context}</p>
+        </GlassCard>
       ))}
-    </motion.div>
+    </div>
   )
 }
 
@@ -241,7 +265,7 @@ export function ProcessFlow({ title, steps, accent = 'blue' }: ProcessFlowProps)
 
   return (
     <GlassCard className="h-full">
-      <h3 className="font-heading text-2xl font-semibold text-white">{title}</h3>
+      <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">{title}</h3>
       <ol className="mt-6 space-y-4">
         {steps.map((step, index) => (
           <li key={step} className="grid grid-cols-[40px_1fr] gap-4">
@@ -253,7 +277,7 @@ export function ProcessFlow({ title, steps, accent = 'blue' }: ProcessFlowProps)
             >
               {index + 1}
             </div>
-            <p className="pt-2 text-sm leading-relaxed text-slate-200 md:text-base">{step}</p>
+            <p className="pt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{step}</p>
           </li>
         ))}
       </ol>
@@ -264,18 +288,18 @@ export function ProcessFlow({ title, steps, accent = 'blue' }: ProcessFlowProps)
 export function VerticalTimeline({ items }: VerticalTimelineProps) {
   return (
     <div className="relative pl-6 md:pl-10">
-      <div className="absolute bottom-0 left-2 top-0 w-px bg-gradient-to-b from-cyan-300 via-blue-500 to-transparent md:left-4" />
+      <div className="absolute bottom-0 left-2 top-0 w-px bg-gradient-to-b from-cyan-400 via-blue-500 to-transparent md:left-4" />
       <div className="space-y-8">
         {items.map((item, index) => (
           <GlassCard key={item.title} className="relative ml-4 md:ml-6">
-            <div className="absolute -left-8 top-8 flex h-6 w-6 items-center justify-center rounded-full border border-cyan-200/50 bg-cyan-300 text-xs font-bold text-slate-950 md:-left-10">
+            <div className="absolute -left-8 top-8 flex h-6 w-6 items-center justify-center rounded-full border border-cyan-400/50 bg-cyan-400 text-xs font-bold text-slate-950 md:-left-10">
               {index + 1}
             </div>
-            <h3 className="font-heading text-2xl font-semibold text-white">{item.title}</h3>
-            <ul className="mt-4 space-y-2 text-sm text-slate-200 md:text-base">
+            <h3 className="font-heading text-2xl font-semibold text-slate-900 dark:text-white">{item.title}</h3>
+            <ul className="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-200 md:text-base">
               {item.bullets.map((bullet) => (
                 <li key={bullet} className="flex gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-300" />
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-400" />
                   <span>{bullet}</span>
                 </li>
               ))}
@@ -289,11 +313,11 @@ export function VerticalTimeline({ items }: VerticalTimelineProps) {
 
 export function PullQuote({ quote, author }: { quote: string; author: string }) {
   return (
-    <GlassCard className="border-white/25 bg-gradient-to-br from-blue-500/20 to-cyan-500/10">
-      <blockquote className="font-heading text-xl font-semibold leading-relaxed text-white md:text-2xl">
-        “{quote}”
+    <GlassCard className="border-cyan-400/25 bg-gradient-to-br from-blue-500/10 to-cyan-500/8 dark:from-blue-500/20 dark:to-cyan-500/10">
+      <blockquote className="font-heading text-base sm:text-lg font-semibold leading-relaxed text-slate-800 dark:text-white md:text-xl lg:text-2xl">
+        "{quote}"
       </blockquote>
-      <p className="mt-4 text-sm uppercase tracking-[0.18em] text-slate-300">{author}</p>
+      <p className="mt-4 text-sm uppercase tracking-[0.18em] text-slate-500 dark:text-slate-300">{author}</p>
     </GlassCard>
   )
 }
@@ -301,12 +325,12 @@ export function PullQuote({ quote, author }: { quote: string; author: string }) 
 export function BottomCta({ headline, description, cta }: BottomCtaProps) {
   return (
     <section className="pb-24 pt-10">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <GlassCard className="border-cyan-300/35 bg-gradient-to-br from-blue-600/20 via-cyan-500/10 to-amber-400/15 p-8 md:p-12">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10">
+        <GlassCard className="border-cyan-400/30 dark:border-cyan-300/35 bg-gradient-to-br from-blue-500/8 via-cyan-500/5 to-amber-400/8 dark:from-blue-600/20 dark:via-cyan-500/10 dark:to-amber-400/15 p-6 md:p-8 lg:p-12">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <h2 className="font-heading text-3xl font-bold text-white md:text-5xl">{headline}</h2>
-              <p className="mt-4 max-w-3xl text-base text-slate-200 md:text-lg">{description}</p>
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white md:text-4xl lg:text-5xl">{headline}</h2>
+              <p className="mt-4 max-w-3xl text-base text-slate-600 dark:text-slate-200 md:text-lg">{description}</p>
             </div>
             <div>
               <Link
@@ -325,35 +349,46 @@ export function BottomCta({ headline, description, cta }: BottomCtaProps) {
 }
 
 export function IntegrationMarquee() {
-  const names = integrationItems.flatMap((group) => group.names)
-  const looped = [...names, ...names]
+  const allItems = integrationItems.flatMap((group) => group.items)
+  const looped = [...allItems, ...allItems]
 
   return (
     <div className="space-y-6">
       <div className="grid gap-3 md:grid-cols-3">
         {integrationItems.map((group) => (
           <GlassCard key={group.category} className="p-4">
-            <p className="text-xs uppercase tracking-[0.16em] text-cyan-200">{group.category}</p>
-            <p className="mt-2 text-sm text-slate-300">{group.names.join(' • ')}</p>
+            <p className="text-xs uppercase tracking-[0.16em] text-cyan-600 dark:text-cyan-200">{group.category}</p>
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{group.items.map(i => i.name).join(' \u2022 ')}</p>
           </GlassCard>
         ))}
       </div>
 
-      <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-slate-950/50 py-5">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#0A0F1C] to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#0A0F1C] to-transparent" />
+      <div className="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-white/15 bg-white/60 dark:bg-slate-950/50 py-4 shadow-sm dark:shadow-none">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10" />
         <motion.div
-          className="flex min-w-max items-center gap-8 px-6"
+          className="flex min-w-max items-center gap-6 px-6"
           initial={{ x: 0 }}
           animate={{ x: '-50%' }}
-          transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
         >
-          {looped.map((name, index) => (
+          {looped.map((item, index) => (
             <div
-              key={`${name}-${index}`}
-              className="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-wider text-slate-400 transition hover:border-cyan-200/60 hover:text-cyan-200"
+              key={`${item.name}-${index}`}
+              className="flex items-center justify-center h-10 px-4 rounded-xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 shrink-0"
             >
-              {name}
+              {item.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={item.logo}
+                  alt={item.name}
+                  className={`h-6 w-auto object-contain ${item.darkInvert ? 'dark:invert' : ''}`}
+                />
+              ) : (
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                  {item.name}
+                </span>
+              )}
             </div>
           ))}
         </motion.div>
@@ -366,7 +401,7 @@ export function FloatingDemoButton({ label = 'Book a Demo' }: { label?: string }
   return (
     <Link
       href="/contact#book-consultation"
-      className="fixed bottom-6 right-6 z-50 inline-flex items-center rounded-full border border-amber-300/60 bg-gradient-to-r from-amber-400 to-amber-500 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-slate-950 shadow-[0_12px_30px_rgba(245,158,11,0.35)] transition hover:-translate-y-1"
+      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 inline-flex items-center rounded-full border border-amber-300/60 bg-gradient-to-r from-amber-400 to-amber-500 px-3 py-2 md:px-5 md:py-3 text-xs md:text-sm font-semibold uppercase tracking-wide text-slate-950 shadow-[0_12px_30px_rgba(245,158,11,0.35)] transition hover:-translate-y-1"
     >
       {label}
     </Link>

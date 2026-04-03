@@ -4,7 +4,7 @@ import { ScrollSection } from '@/components/ui/ScrollSection'
 import { GlassCard } from '@/components/ui/GlassCard'
 import { motion } from 'framer-motion'
 import { Quote, ArrowRight } from 'lucide-react'
-import { AnimatedButton } from '@/components/ui/AnimatedButton'
+import Link from 'next/link'
 
 const caseStudies = [
   {
@@ -47,101 +47,93 @@ const caseStudies = [
 
 export function ClientSuccessStories() {
   return (
-    <ScrollSection id="success-stories" className="bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold font-heading mb-4 text-gray-900">
+    <ScrollSection
+      id="success-stories"
+      className="relative py-24 lg:py-32 overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-100 via-slate-50 to-white dark:from-[#0D1526] dark:via-[#0B1324] dark:to-[#0A0F1C]" />
+      <div className="absolute inset-0 bg-grid opacity-10 dark:opacity-15" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-4 text-slate-900 dark:text-white">
             <span className="gradient-text">Proven Impact</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Real results from real transformations
           </p>
-        </motion.div>
+        </div>
 
-        {/* Horizontal Scrolling Carousel */}
+        {/* Horizontal scrolling carousel — fixed to -50% so duplicated set loops cleanly */}
         <div className="relative overflow-hidden">
           <motion.div
             className="flex gap-6 pb-8"
             initial={{ x: 0 }}
-            animate={{ x: '-100%' }}
-            transition={{
-              duration: 30,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-            whileHover={{ animationPlayState: 'paused' }}
+            animate={{ x: '-50%' }}
+            transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
           >
             {[...caseStudies, ...caseStudies].map((study, index) => (
-              <motion.div
-                key={index}
-                className="flex-shrink-0 w-[400px]"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div key={index} className="flex-shrink-0 w-[280px] sm:w-[340px] md:w-[380px] lg:w-[420px]">
                 <GlassCard className="h-full">
-                  {/* Client Logo & Industry */}
+                  {/* Header */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-cyber flex items-center justify-center text-2xl font-bold text-gray-900">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-xl font-bold text-white">
                       {study.logo}
                     </div>
-                    <span className="text-sm text-primary border border-primary/30 px-3 py-1 rounded-full">
+                    <span className="text-sm text-cyan-600 dark:text-cyan-400 border border-cyan-400/30 px-3 py-1 rounded-full">
                       {study.industry}
                     </span>
                   </div>
 
                   {/* Challenge */}
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">
                     {study.challenge}
                   </h3>
 
                   {/* Results */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="grid grid-cols-2 gap-3 mb-6">
                     {study.results.map((result, idx) => (
-                      <div key={idx} className="text-center p-3 rounded-lg bg-primary/5 border border-primary/20">
-                        <div className="text-2xl font-bold gradient-text mb-1">
-                          {result.metric}
-                        </div>
-                        <div className="text-xs text-gray-600">{result.label}</div>
+                      <div
+                        key={idx}
+                        className="text-center p-3 rounded-lg bg-cyan-500/8 dark:bg-cyan-500/10 border border-cyan-400/20"
+                      >
+                        <div className="text-2xl font-bold gradient-text mb-1">{result.metric}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">{result.label}</div>
                       </div>
                     ))}
                   </div>
 
                   {/* Quote */}
                   <div className="relative">
-                    <Quote className="absolute -top-2 -left-2 w-8 h-8 text-primary/30" />
-                    <p className="text-gray-700 italic mb-3 pl-6">
+                    <Quote className="absolute -top-2 -left-2 w-7 h-7 text-cyan-400/30" />
+                    <p className="text-slate-600 dark:text-slate-300 italic mb-3 pl-5 text-sm leading-relaxed">
                       {study.quote}
                     </p>
-                    <p className="text-sm text-gray-500">— {study.author}</p>
+                    <p className="text-sm text-slate-400 dark:text-slate-500">— {study.author}</p>
                   </div>
 
                   {/* CTA */}
-                  <div className="mt-6">
-                    <AnimatedButton
-                      variant="ghost"
-                      size="sm"
-                      className="w-full"
-                      href="/case-studies"
+                  <div className="mt-5 pt-4 border-t border-slate-100 dark:border-white/10">
+                    <Link
+                      href="/contact"
+                      className="flex items-center gap-2 text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors"
                     >
-                      Read Full Story <ArrowRight className="inline-block ml-2 w-4 h-4" />
-                    </AnimatedButton>
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </GlassCard>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
 
         <div className="text-center mt-12">
-          <AnimatedButton variant="outline" size="lg" href="/case-studies">
-            View All Case Studies
-          </AnimatedButton>
+          <Link
+            href="/contact#book-consultation"
+            className="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-white/20 px-8 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-slate-700 dark:text-slate-200 transition hover:border-cyan-400/50 hover:text-cyan-600 dark:hover:text-cyan-400"
+          >
+            Book a Consultation
+          </Link>
         </div>
       </div>
     </ScrollSection>
