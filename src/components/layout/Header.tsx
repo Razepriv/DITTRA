@@ -18,13 +18,19 @@ const solutionsLinks = [
   { name: 'AI Accelerators', href: '/solutions/ai-accelerators' },
 ]
 
+const companyLinks = [
+  { name: 'About Us', href: '/about' },
+  { name: 'Careers', href: '/careers' },
+]
+
 export function Header() {
   const { theme, toggle } = useTheme()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [openDropdown, setOpenDropdown] = useState<null | 'capabilities' | 'solutions'>(null)
+  const [openDropdown, setOpenDropdown] = useState<null | 'capabilities' | 'solutions' | 'company'>(null)
   const [mobileCapabilitiesOpen, setMobileCapabilitiesOpen] = useState(false)
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false)
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -165,10 +171,48 @@ export function Header() {
               INSIGHTS
               <span className={underline} />
             </Link>
-            <Link href="/#team" className={navLinkClass}>
-              ABOUT
-              <span className={underline} />
-            </Link>
+
+            {/* Company dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenDropdown('company')}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button
+                type="button"
+                className={`${navLinkClass} inline-flex items-center gap-1`}
+                onFocus={() => setOpenDropdown('company')}
+                onBlur={() => setOpenDropdown(null)}
+              >
+                COMPANY
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${openDropdown === 'company' ? 'rotate-180' : ''}`}
+                />
+              </button>
+              <AnimatePresence>
+                {openDropdown === 'company' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                    transition={{ duration: 0.18 }}
+                    className="absolute left-0 top-9 min-w-[180px] rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 p-1.5 shadow-xl shadow-black/10 dark:shadow-black/40"
+                  >
+                    {companyLinks.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setOpenDropdown(null)}
+                        className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 transition-colors hover:bg-slate-100 dark:hover:bg-white/8 hover:text-cyan-600 dark:hover:text-cyan-400"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <Link href="/contact" className={navLinkClass}>
               CONTACT
               <span className={underline} />
@@ -298,7 +342,6 @@ export function Header() {
 
                 {[
                   { name: 'INSIGHTS', href: '/#success-stories' },
-                  { name: 'ABOUT', href: '/#team' },
                   { name: 'CONTACT', href: '/contact' },
                 ].map((item) => (
                   <Link
@@ -310,6 +353,31 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
+
+                <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 p-3">
+                  <button
+                    type="button"
+                    onClick={() => setMobileCompanyOpen(p => !p)}
+                    className="flex w-full items-center justify-between text-left text-sm font-semibold uppercase tracking-[0.12em] text-slate-700 dark:text-slate-100"
+                  >
+                    COMPANY
+                    <ChevronDown className={`h-4 w-4 transition-transform ${mobileCompanyOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {mobileCompanyOpen && (
+                    <div className="mt-3 space-y-1">
+                      {companyLinks.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="block rounded-lg px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/8 hover:text-cyan-600 dark:hover:text-cyan-400"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
 
                 <Link
                   href="/contact#book-consultation"
